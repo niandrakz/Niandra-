@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Pinky Library</title>
+
+<style>
+/* CSS kamu tetap, ga aku ubah */
+body {
+    background:#fff5f8;
+    font-family:sans-serif;
+    padding:20px;
+}
+.book-card {
+    background:white;
+    padding:15px;
+    margin:10px;
+    border-radius:15px;
+}
+</style>
+</head>
+
+<body>
+
+<h2>🎀 Pinky Library</h2>
+
+<input type="text" id="search" placeholder="Cari..." oninput="render()">
+
+<form id="form">
+    <input type="hidden" id="id">
+    <input type="text" id="kode" placeholder="Kode" required>
+    <input type="text" id="judul" placeholder="Judul" required>
+    <input type="text" id="penulis" placeholder="Penulis" required>
+    <input type="text" id="kategori" placeholder="Kategori">
+    <input type="number" id="stok" placeholder="Stok">
+    <button type="submit">Simpan</button>
+</form>
+
+<div id="list"></div>
+
+<script>
+let data = JSON.parse(localStorage.getItem("buku")) || [];
+
+document.getElementById("form").onsubmit = function(e){
+    e.preventDefault();
+
+    let id = document.getElementById("id").value;
+    let buku = {
+        id: id || Date.now(),
+        kode: kode.value,
+        judul: judul.value,
+        penulis: penulis.value,
+        kategori: kategori.value,
+        stok: stok.value
+    };
+
+    if(id){
+        data = data.map(b => b.id == id ? buku : b);
+    } else {
+        data.push(buku);
+    }
+
+    localStorage.setItem("buku", JSON.stringify(data));
+    this.reset();
+    render();
+};
+
+function render(){
+    let q = document.getElementById("search").value.toLowerCase();
+    let list = document.getElementById("list");
+    list.innerHTML = "";
+
+    data
+    .filter(b => 
+        b.judul.toLowerCase().includes(q) ||
+        b.penulis.toLowerCase().includes(q) ||
+        b.kode.toLowerCase().includes(q)
+    )
+    .forEach(b => {
+        list.innerHTML += `
+        <div class="book-card">
+            <b>${b.judul}</b><br>
+            ${b.penulis}<br>
+            ${b.kategori}<br>
+            Stok: ${b.stok}<br><br>
+            <button onclick="edit(${b.id})">Edit</button>
+            <button onclick="hapus(${b.id})">Hapus</button>
+        </div>
+        `;
+    });
+}
+
+function edit(id){
+    let b = data.find(x => x.id == id);
+    document.getElementById("id").value = b.id;
+    kode.value = b.kode;
+    judul.value = b.judul;
+    penulis.value = b.penulis;
+    kategori.value = b.kategori;
+    stok.value = b.stok;
+}
+
+function hapus(id){
+    if(confirm("Hapus?")){
+        data = data.filter(b => b.id != id);
+        localStorage.setItem("buku", JSON.stringify(data));
+        render();
+    }
+}
+
+render();
+</script>
+
+</body>
+</html>
