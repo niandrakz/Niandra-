@@ -3,302 +3,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pink Esthetic Library | Niandra KZ</title>
+    <title>Pengumuman Kelulusan Kelas 6 - SD YWKA Palembang</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
-
-        :root {
-            --bg-pink: #fff5f8;
-            --main-pink: #ff85a2;
-            --dark-pink: #ef476f;
-            --text-color: #4a4a4a;
-            --card-white: #ffffff;
-        }
-
         body {
-            background-color: var(--bg-pink);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            color: var(--text-color);
-            padding: 40px 20px;
-            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #f0f4f8;
         }
-
-        .container { max-width: 1000px; margin: auto; }
-
-        .header-title { 
-            text-align: center; 
-            color: var(--dark-pink); 
-            font-weight: 800; 
-            font-size: 30px; 
-            margin-bottom: 10px;
-            letter-spacing: -1px;
+        /* Kombinasi gradasi Oranye, Hijau, dan Biru sesuai permintaan */
+        .bg-gradient-custom {
+            background: linear-gradient(135deg, #f97316 0%, #22c55e 50%, #3b82f6 100%);
         }
-        .header-sub { text-align: center; color: var(--main-pink); margin-bottom: 40px; font-size: 14px; }
-
-        .search-input {
-            width: 100%; padding: 18px 25px; border-radius: 25px;
-            border: 2px solid var(--main-pink); background: white;
-            outline: none; margin-bottom: 30px; box-sizing: border-box;
-            font-size: 15px; transition: 0.3s;
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out forwards;
         }
-        .search-input:focus { border-color: var(--dark-pink); box-shadow: 0 0 15px rgba(239, 71, 111, 0.1); }
-
-        .card-form {
-            background: white; padding: 30px; border-radius: 25px;
-            box-shadow: 0 10px 30px rgba(239, 71, 111, 0.05);
-            margin-bottom: 40px; border: 1px solid #ffeef2;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        .grid-form {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px; align-items: end;
+        /* Corak dekoratif perayaan pada halaman lulus */
+        .celebration-bg {
+            background-image: radial-gradient(rgba(34, 197, 94, 0.15) 1px, transparent 0), radial-gradient(rgba(249, 115, 22, 0.15) 1px, transparent 0);
+            background-size: 24px 24px;
+            background-position: 0 0, 12px 12px;
         }
-
-        .input-group label {
-            display: block; font-size: 11px; font-weight: 800; color: var(--main-pink);
-            margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;
-        }
-
-        input, select {
-            width: 100%; padding: 14px; border-radius: 15px;
-            border: 1px solid #ffe0e9; background: #fffcfd; font-family: inherit;
-            font-size: 14px; box-sizing: border-box;
-        }
-        input:focus, select:focus { border-color: var(--main-pink); outline: none; background: white; }
-
-        .btn-save {
-            background: var(--dark-pink); color: white; border: none;
-            padding: 16px; border-radius: 15px; font-weight: 700; cursor: pointer;
-            transition: 0.3s; font-size: 14px;
-        }
-        .btn-save:hover { background: #d63359; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(239, 71, 111, 0.3); }
-
-        .book-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 25px;
-        }
-
-        .book-card {
-            background: white;
-            border-radius: 25px;
-            padding: 25px;
-            box-shadow: 0 5px 20px rgba(239, 71, 111, 0.04);
-            transition: 0.3s ease;
-            border: 1px solid transparent;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .book-card:hover {
-            transform: translateY(-5px);
-            border-color: #ffe0e9;
-            box-shadow: 0 10px 30px rgba(239, 71, 111, 0.08);
-        }
-
-        .book-card::before {
-            content: ''; position: absolute; top: -20px; right: -20px;
-            width: 60px; height: 60px; background: var(--bg-pink);
-            border-radius: 50%; z-index: 0;
-        }
-
-        .card-header { position: relative; z-index: 1; margin-bottom: 15px; }
-        .kode-buku { font-size: 12px; font-weight: 700; color: var(--main-pink); margin-bottom: 5px; }
-        .judul-buku { font-size: 18px; font-weight: 800; color: var(--text-color); margin: 0; line-height: 1.3; }
-
-        .card-body { position: relative; z-index: 1; flex-grow: 1; margin-bottom: 20px; }
-        .penulis-buku { font-size: 14px; color: #7a7a7a; margin-bottom: 15px; }
-        
-        .info-row { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
-        .badge-kategori {
-            background: #fff0f3; color: var(--dark-pink);
-            padding: 6px 14px; border-radius: 12px; font-size: 11px; font-weight: 700;
-        }
-        .stok-buku { font-size: 12px; color: #7a7a7a; }
-        .stok-buku b { color: var(--text-color); font-size: 16px; }
-
-        .card-footer {
-            position: relative; z-index: 1;
-            border-top: 1px solid #ffeef2;
-            padding-top: 15px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .action-link {
-            text-decoration: none; font-size: 12px; font-weight: 700;
-            padding: 8px 18px; border-radius: 10px; transition: 0.2s; cursor: pointer;
-        }
-        .edit-link { color: #b99470; background: #fffbef; }
-        .del-link { color: var(--dark-pink); background: var(--bg-pink); }
-
-        pre {
-            background: #2d2d2d; color: #ffb8c6; padding: 25px; 
-            border-radius: 25px; font-size: 12px; margin-top: 60px; 
-            overflow-x: auto; line-height: 1.6; border: 2px solid #3d3d3d;
+        /* Optimasi cetak print surat */
+        @media print {
+            .no-print { display: none !important; }
+            .print-card {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                margin: 0 !important;
+                padding: 2rem !important;
+            }
         }
     </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col justify-between text-slate-800 selection:bg-orange-200">
 
-<div class="container">
-    <h1 class="header-title">🎀 Pinky Library</h1>
-    <p class="header-sub">Koleksi Buku Estetik Niandra KZ (Offline Version)</p>
-
-    <input type="text" id="searchInput" class="search-input" placeholder="🔍 Cari judul, penulis, atau kode buku pink..." onkeyup="renderBooks()">
-
-    <div class="card-form">
-        <form id="bookForm" class="grid-form">
-            <input type="hidden" id="bookId">
-            <div class="input-group">
-                <label>Kode</label>
-                <input type="text" id="kode_buku" placeholder="Contoh: PK01" required>
+    <div id="page-input" class="flex-grow flex flex-col justify-center items-center py-12 px-4">
+        <div class="w-full max-w-xl text-center mb-8 fade-in">
+            <div class="mx-auto w-24 h-24 bg-white rounded-2xl shadow-md p-3 mb-4 border border-slate-100 flex items-center justify-center">
+                <i class="fa-solid fa-school text-4xl text-blue-600"></i>
             </div>
-            <div class="input-group">
-                <label>Judul Buku</label>
-                <input type="text" id="judul" placeholder="Judul yang imut" required>
-            </div>
-            <div class="input-group">
-                <label>Penulis</label>
-                <input type="text" id="penulis" placeholder="Nama penulis" required>
-            </div>
-            <div class="input-group">
-                <label>Kategori</label>
-                <select id="kategori">
-                    <option value="Teknologi">Teknologi</option>
-                    <option value="Novel">Novel</option>
-                    <option value="Filsafat">Filsafat</option>
-                    <option value="Sains">Sains</option>
-                    <option value="Ekonomi">Ekonomi</option>
-                    <option value="Sejarah">Sejarah</option>
-                    <option value="Agama">Agama</option>
-                    <option value="Komik">Komik</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <label>Stok</label>
-                <input type="number" id="stok" value="1">
-            </div>
-            <button type="submit" id="btnSubmit" class="btn-save">🌸 SIMPAN</button>
-        </form>
-    </div>
-
-    <div class="book-grid" id="bookGrid">
+            <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900">
+                SD YWKA PALEMBANG
+            </h1>
+            <p class="text-slate-500 text-sm mt-1 font-medium tracking-wide uppercase">
+                Portal Resmi Pengumuman Kelulusan Kelas 6 <br>
+                <span class="text-xs bg-slate-200 text-slate-700 px-2.5 py-0.5 rounded-full font-bold">TA 2025/2026</span>
+            </p>
         </div>
 
-    <h4 style="margin-top:60px; color:var(--dark-pink); font-size: 13px; text-align:center;">📡 Live System Data (JSON Result)</h4>
-    <pre id="jsonPreview"></pre>
-</div>
+        <div class="w-full max-w-xl bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden fade-in" style="animation-delay: 0.1s;">
+            <div class="h-3 bg-gradient-custom"></div>
+            
+            <div class="p-6 md:p-10">
+                <h2 class="text-xl font-bold text-slate-800 flex items-center gap-2.5 mb-2">
+                    <i class="fa-solid fa-id-card text-orange-500"></i> Pengecekan Status Siswa
+                </h2>
+                <p class="text-sm text-slate-500 mb-8 leading-relaxed">
+                    Silakan masukkan kombinasi nomor peserta (NISN) dan nama lengkap Anda secara tepat sesuai dengan data kartu ujian.
+                </p>
 
-<script>
-    // Database Simulasi (LocalStorage)
-    let books = JSON.parse(localStorage.getItem('niandra_pink_lib')) || [];
-
-    const bookForm = document.getElementById('bookForm');
-    const bookGrid = document.getElementById('bookGrid');
-    const jsonPreview = document.getElementById('jsonPreview');
-
-    // Fungsi Render Tampilan
-    function renderBooks() {
-        const query = document.getElementById('searchInput').value.toLowerCase();
-        const filtered = books.filter(b => 
-            b.judul.toLowerCase().includes(query) || 
-            b.penulis.toLowerCase().includes(query) || 
-            b.kode_buku.toLowerCase().includes(query) ||
-            b.kategori.toLowerCase().includes(query)
-        );
-
-        bookGrid.innerHTML = '';
-        filtered.forEach((b) => {
-            bookGrid.innerHTML += `
-                <div class="book-card">
-                    <div class="card-header">
-                        <div class="kode-buku">#${b.kode_buku}</div>
-                        <h3 class="judul-buku">${b.judul}</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="penulis-buku">oleh ${b.penulis}</div>
-                        <div class="info-row">
-                            <span class="badge-kategori">${b.kategori}</span>
-                            <div class="stok-buku">Stok: <b>${b.stok}</b></div>
+                <div class="space-y-5">
+                    <div>
+                        <label for="nisn" class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">
+                            NISN / Nomor Peserta
+                        </label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400">
+                                <i class="fa-solid fa-fingerprint"></i>
+                            </span>
+                            <input type="text" id="nisn" placeholder="Contoh: 0131414368"
+                                class="w-full pl-11 pr-5 py-3.5 bg-slate-50 border-2 border-slate-200 rounded-2xl focus:outline-none focus:border-blue-500 font-mono text-lg tracking-wider text-slate-700 transition-colors">
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <span class="action-link edit-link" onclick="editBook('${b.id}')">Edit</span>
-                        <span class="action-link del-link" onclick="deleteBook('${b.id}')">Hapus</span>
+
+                    <div>
+                        <label for="nama" class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">
+                            Nama Lengkap Siswa
+                        </label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400">
+                                <i class="fa-solid fa-user"></i>
+                            </span>
+                            <input type="text" id="nama" placeholder="Contoh: ABDURAHMAN MELVIAN"
+                                class="w-full pl-11 pr-5 py-3.5 bg-slate-50 border-2 border-slate-200 rounded-2xl focus:outline-none focus:border-green-500 text-md text-slate-700 transition-colors uppercase">
+                        </div>
+                    </div>
+
+                    <button onclick="prosesValidasi()"
+                        class="w-full mt-4 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold py-4 rounded-2xl shadow-lg hover:shadow-orange-200 transform active:scale-[0.99] transition-all text-center tracking-wide text-sm flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-magnifying-glass"></i> PERIKSA STATUS KELULUSAN
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="page-success" class="hidden flex-grow celebration-bg flex flex-col justify-center items-center py-12 px-4">
+        <div class="w-full max-w-2xl bg-white rounded-[2.5rem] shadow-2xl border-2 border-green-100 overflow-hidden print-card fade-in">
+            
+            <div class="bg-gradient-to-r from-green-500 to-blue-600 text-white text-center py-8 px-6 relative no-print">
+                <div class="absolute top-4 right-6 text-white/20 text-7xl font-black">LULUS</div>
+                <span class="bg-white/20 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest backdrop-blur-sm">
+                    Surat Keterangan Kelulusan Digital
+                </span>
+                <h2 class="text-2xl md:text-3xl font-extrabold mt-3 tracking-tight">Selamat & Sukses!</h2>
+            </div>
+
+            <div class="p-8 md:p-12 text-center">
+                <div class="mx-auto w-28 h-28 bg-white rounded-full shadow-lg p-3.5 mb-6 border border-slate-100 flex items-center justify-center">
+                    <i class="fa-solid fa-graduation-cap text-5xl text-green-600"></i>
+                </div>
+
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Pernyataan Resmi</p>
+                <p class="text-sm text-slate-600 mt-1 max-w-md mx-auto">
+                    Berdasarkan kriteria kelulusan yang telah ditetapkan, bersama ini Kepala Sekolah SD YWKA Palembang menyatakan bahwa:
+                </p>
+
+                <div class="my-8 bg-slate-50 rounded-2xl p-6 border border-slate-100 max-w-md mx-auto text-left space-y-3">
+                    <div class="flex justify-between items-center border-b border-slate-200 pb-2">
+                        <span class="text-xs text-slate-400 uppercase font-bold tracking-wider">Nama Lengkap</span>
+                        <span id="res-nama" class="font-bold text-slate-800 text-right text-md"></span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-slate-400 uppercase font-bold tracking-wider">NISN / No. Peserta</span>
+                        <span id="res-nisn" class="font-mono font-bold text-slate-600 text-right"></span>
                     </div>
                 </div>
-            `;
-        });
 
-        // Update JSON
-        jsonPreview.innerText = JSON.stringify({
-            status: "success",
-            total: filtered.length,
-            books: filtered
-        }, null, 4);
+                <div class="inline-flex items-center gap-2 bg-green-100 text-green-700 font-black text-2xl md:text-3xl px-8 py-3.5 rounded-2xl border-2 border-green-200 tracking-widest mb-6 uppercase shadow-sm shadow-green-100">
+                    <i class="fa-solid fa-circle-check"></i> L U L U S
+                </div>
 
-        // Save ke LocalStorage
-        localStorage.setItem('niandra_pink_lib', JSON.stringify(books));
-    }
+                <p class="text-xs md:text-sm text-slate-500 max-w-lg mx-auto leading-relaxed">
+                    Selamat atas pencapaian berhargamu selama 6 tahun ini! Terus rajut impian baru, belajar dengan giat, dan jaga nama baik almamater di tingkat SMP/MTs kelak.
+                </p>
 
-    // Fungsi Simpan / Update
-    bookForm.onsubmit = (e) => {
-        e.preventDefault();
-        const id = document.getElementById('bookId').value;
-        const bookData = {
-            id: id || Date.now().toString(),
-            kode_buku: document.getElementById('kode_buku').value,
-            judul: document.getElementById('judul').value,
-            penulis: document.getElementById('penulis').value,
-            kategori: document.getElementById('kategori').value,
-            stok: document.getElementById('stok').value
+                <div class="mt-10 flex flex-wrap gap-4 justify-center no-print">
+                    <button onclick="window.print()" 
+                        class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl text-sm shadow-md transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-print"></i> Cetak Bukti Kelulusan
+                    </button>
+                    <button onclick="kembaliKePencarian()" 
+                        class="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold rounded-xl text-sm transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-left"></i> Kembali Cek Data Lain
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center py-6 text-xs text-slate-400 font-medium no-print">
+        &copy; 2026 SD YWKA PALEMBANG. All Rights Reserved.
+    </footer>
+
+
+    <script>
+        // Database internal yang diekstrak dari tabel gambar Anda
+        const databaseKelulusan = {
+            "0131414368": "ABDURAHMAN MELVIAN",
+            "0141679225": "ALMIRA AZZAHWA",
+            "0145701374": "ALVINA PUTRI ZILDJIAN",
+            "0146716622": "ANDI MUHAMMAD RAYHAN",
+            "0146837271": "ANGGITA PUTRI ANUGRAHENI",
+            "0132048201": "ANIFAH",
+            "0143976442": "ERTISYAH NAURA AZZALEA",
+            "0146303006": "IKA WAHYUNI",
+            "3142335685": "KHANIFAH ZAHRA",
+            "0144441522": "LABIBA CALLYSTA HUMAIRA",
+            "0141466707": "M. ARAFIQ",
+            "0147214530": "M. RIZKI DWI ANUGRAH",
+            "0143081871": "M. RIZKY RAFFASYA",
+            "0146690821": "M. SEPTIAN DWI RAHMATULLAH",
+            "0149670137": "MAHARANIE AISYAH RIVAI",
+            "0147179221": "MESYA DWI RIANTI",
+            "0131174996": "MUHAMMAD ALIF PRAMANA",
+            "0148454605": "MUHAMMAD HAIKAL",
+            "0131860140": "MUHAMMAD RAFAEL LUCKMANSYAH",
+            "0142536192": "MYS BALQIS AZDRA",
+            "0139087355": "NIDERA NAURA KIM",
+            "0148953623": "NINDYA RACHMADINA",
+            "0145123458": "NUR AISYAH RAMADHANY",
+            "0144286111": "NUR ALIA BASRI",
+            "3145395122": "OLIVIA AZZAHRA",
+            "0142454224": "PUTRI ADELIA SHAPIRA",
+            "0142879353": "QORI MAULIDA",
+            "0144906306": "RESTU PUTRA RISANGGA",
+            "0135723800": "RIFKY KURNIAWAN",
+            "0142381731": "RIZKI PUTRA PRATAMA",
+            "3131444468": "SHERLY PRATIWI",
+            "0141094077": "SITI KHOIRUNNISA"
         };
 
-        if (id) {
-            const index = books.findIndex(b => b.id === id);
-            books[index] = bookData;
-        } else {
-            books.push(bookData);
+        function prosesValidasi() {
+            const rawNisn = document.getElementById('nisn').value.trim();
+            const rawNama = document.getElementById('nama').value.trim().toUpperCase();
+
+            // Proteksi jika kolom isian kosong
+            if (rawNisn === "" || rawNama === "") {
+                alert("Peringatan: Silakan lengkapi nomor NISN dan Nama Lengkap terlebih dahulu!");
+                return;
+            }
+
+            // Validasi silang data NISN dan kesamaan Nama
+            if (databaseKelulusan[rawNisn] && databaseKelulusan[rawNisn].toUpperCase() === rawNama) {
+                // DATA COCOK -> Lempar Data Ke DOM Halaman Baru
+                document.getElementById('res-nama').innerText = databaseKelulusan[rawNisn];
+                document.getElementById('res-nisn').innerText = rawNisn;
+
+                // Transisi: Sembunyikan form depan, Tampilkan halaman baru sukses
+                document.getElementById('page-input').classList.add('hidden');
+                document.getElementById('page-success').classList.remove('hidden');
+                
+                // Set scroll otomatis ke paling atas halaman
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                // DATA GAGAL COCOK
+                alert("Maaf, kombinasi NISN dan Nama tidak sesuai. Silakan periksa kembali ketikan Anda sesuai kartu ujian.");
+            }
         }
 
-        bookForm.reset();
-        document.getElementById('bookId').value = '';
-        document.getElementById('kode_buku').disabled = false;
-        document.getElementById('btnSubmit').innerText = "🌸 SIMPAN";
-        renderBooks();
-    };
-
-    // Fungsi Edit
-    window.editBook = (id) => {
-        const b = books.find(book => book.id === id);
-        if (b) {
-            document.getElementById('bookId').value = b.id;
-            document.getElementById('kode_buku').value = b.kode_buku;
-            document.getElementById('kode_buku').disabled = true;
-            document.getElementById('judul').value = b.judul;
-            document.getElementById('penulis').value = b.penulis;
-            document.getElementById('kategori').value = b.kategori;
-            document.getElementById('stok').value = b.stok;
-            document.getElementById('btnSubmit').innerText = "💖 UPDATE";
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        function kembaliKePencarian() {
+            // Sembunyikan halaman pengumuman lulus, balikkan ke halaman depan
+            document.getElementById('page-success').classList.add('hidden');
+            document.getElementById('page-input').classList.remove('hidden');
+            
+            // Mengosongkan form input sebelumnya agar bersih kembali
+            document.getElementById('nisn').value = "";
+            document.getElementById('nama').value = "";
         }
-    };
-
-    // Fungsi Hapus
-    window.deleteBook = (id) => {
-        if (confirm('Hapus buku imut ini?')) {
-            books = books.filter(b => b.id !== id);
-            renderBooks();
-        }
-    };
-
-    // Inisialisasi awal
-    renderBooks();
-</script>
+    </script>
 </body>
 </html>
